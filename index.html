@@ -151,47 +151,7 @@
                       <th>Ações</th>
                     </tr>
                   </thead>
-                  <tbody>
-
-                    <tr>
-                      <td><img src="dist/img/user1-128x128.jpg" alt="User Image" class="img-circle img-sm"></td>
-                      <td>Dev</td>
-                      <td>dev@email.com.br</td>
-                      <td>Sim</td>
-                      <td>13/03/2022</td>
-                      <td>
-                        <button type="button" class="btn btn-primary btn-xs btn-flat">Editar</button>
-                        <button type="button" class="btn btn-danger btn-xs btn-flat">Excluir</button>
-                      </td>
-                    </tr>
-
-                    <tr>
-                      <td>
-                        <img src="dist/img/user1-128x128.jpg" alt="User Image" class="img-circle img-sm">
-                      </td>
-                      <td>Dev</td>
-                      <td>dev@email.com.br</td>
-                      <td>Sim</td>
-                      <td>13/03/2022</td>
-                      <td>
-                        <button type="button" class="btn btn-primary btn-xs btn-flat">Editar</button>
-                        <button type="button" class="btn btn-danger btn-xs btn-flat">Excluir</button>
-                      </td>
-                    </tr>
-
-                    <tr>
-                      <td>
-                        <img src="dist/img/user1-128x128.jpg" alt="User Image" class="img-circle img-sm">
-                      </td>
-                      <td>Dev</td>
-                      <td>dev@email.com.br</td>
-                      <td>Sim</td>
-                      <td>13/03/2022</td>
-                      <td>
-                        <button type="button" class="btn btn-primary btn-xs btn-flat">Editar</button>
-                        <button type="button" class="btn btn-danger btn-xs btn-flat">Excluir</button>
-                      </td>
-                    </tr>
+                  <tbody id="table-users">
 
                   </tbody>
                 </table>
@@ -252,12 +212,12 @@
                     <label>Gênero</label>
                     <div class="radio">
                       <label for="exampleInputGenderM">
-                        <input type="radio" id="exampleInputGenderM" name="gender">
+                        <input type="radio" id="exampleInputGenderM" name="gender" value="M">
                         Masculino</label>
                     </div>
                     <div class="radio">
                       <label for="exampleInputGenderF">
-                        <input type="radio" id="exampleInputGenderF" name="gender">
+                        <input type="radio" id="exampleInputGenderF" name="gender" value="F">
                         Feminino</label>
                     </div>
                   </div>
@@ -516,13 +476,13 @@
                     </select>
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputEmail1">E-mail</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Digite o e-mail"
+                    <label for="exampleInputEmail">E-mail</label>
+                    <input type="email" class="form-control" id="exampleInputEmail" placeholder="Digite o e-mail"
                       name="email">
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputPassword1">Senha</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Crie uma senha"
+                    <label for="exampleInputPassword">Senha</label>
+                    <input type="password" class="form-control" id="exampleInputPassword" placeholder="Crie uma senha"
                       name="password">
                   </div>
                   <div class="form-group">
@@ -531,7 +491,7 @@
                   </div>
                   <div class="checkbox">
                     <label>
-                      <input type="checkbox" name="admin"> Administrador
+                      <input type="checkbox" id="exampleInputAdmin"  name="admin"> Administrador
                     </label>
                   </div>
                 </div>
@@ -560,6 +520,9 @@
     </footer>
 
   </div>
+
+  <script src="models/User.js"></script>
+  <script src="index.js"></script>
 
 </body>
 
