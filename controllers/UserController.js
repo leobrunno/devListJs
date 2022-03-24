@@ -169,21 +169,9 @@ class UserController {
         return new User(user.name, user.gender, user.birth, user.country, user.email, user.password, user.photo, user.admin);
     }
 
-    getUsersStorage() {
-
-        let users = [];
-
-        if(localStorage.getItem("user")){
-
-            users = JSON.parse(localStorage.getItem("user"));
-        }
-
-        return users;
-    }
-
     selectAll() {
 
-        let users = this.getUsersStorage();
+        let users = User.getUsersStorage();
 
         users.forEach(dataUser => {
 
@@ -233,6 +221,12 @@ class UserController {
         tr.querySelector(".btn-delete").addEventListener("click", e => {
 
             if(confirm("Deseja excluir esse usuario?")){
+
+                let user = new User();
+
+                user.loadFromJSON(JSON.parse(tr.dataset.user));
+
+                user.delete();
 
                 tr.remove();
 
