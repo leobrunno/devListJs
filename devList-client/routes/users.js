@@ -34,4 +34,13 @@ router.put('/update/:id', function(req, res, next) {
   });
 });
 
+router.delete('/delete/:id', function(req, res, next) {
+
+  client.del(`/users/delete/${req.params.id}`, function(err, request, response, obj) {
+    assert.ifError(err);
+
+    res.end(obj);
+  });
+});
+
 module.exports = router;
