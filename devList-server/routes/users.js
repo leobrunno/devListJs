@@ -41,4 +41,33 @@ module.exports = (app) => {
             }
         });
     });
+
+    let routeUpdate = app.route('/users/update/:id');
+
+    routeUpdate.put([
+            check("name", "O nome é obrigatório.").notEmpty(),
+            check("password", "A senha é obrigatório.").notEmpty(),
+            check("email", "Email inválido.").notEmpty().isEmail(),
+        ],
+        (req, res) => {
+
+        let errors = validationResult(req);
+
+        if (!errors.isEmpty()) {
+
+            app.utils.error.send(errors, req, res);
+            return false;
+        }
+
+        db.update({ _id: req.params.id }, req.body, err => {
+
+            if (err) {
+
+                app.utils.error.send(err, req, res);
+            } else {
+
+                res.status(200).json(Object.assign(req.params, req.body));
+            }
+        });
+    });
 }

@@ -25,4 +25,13 @@ router.get('/:id', function(req, res, next) {
   });
 });
 
+router.put('/update/:id', function(req, res, next) {
+
+  client.put(`/users/update/${req.params.id}`, req.body, function(err, request, response, obj) {
+    assert.ifError(err);
+
+    res.end(obj);
+  });
+});
+
 module.exports = router;
