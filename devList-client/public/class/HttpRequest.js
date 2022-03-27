@@ -29,7 +29,7 @@ class HttpRequest {
 
             ajax.onerror = event => {
 
-                reject(e);
+                reject(event);
             };
 
             ajax.onload = event => {

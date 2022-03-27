@@ -3,6 +3,7 @@ let db = new neDb({
     filename: 'users.db',
     autoload: true
 });
+const { check, validationResult } = require("express-validator");
 
 module.exports = (app) => {
 
@@ -86,4 +87,32 @@ module.exports = (app) => {
             }
         });
     });
+
+    route.post(
+        [
+            check("name", "O nome é obrigatório.").notEmpty(),
+            check("password", "A senha é obrigatório.").notEmpty(),
+            check("email", "Email inválido.").notEmpty().isEmail(),
+        ],
+        (req, res) => {
+            let errors = validationResult(req);
+
+            if (!errors.isEmpty()) {
+
+                app.utils.error.send(errors, req, res);
+                return false;
+            }
+
+            db.insert(req.body, (err, user) => {
+
+                if (err) {
+
+                    app.utils.error.send(err, req, res);
+                } else {
+
+                    res.status(200).json(user);
+                }
+            });
+        }
+    );
 }
