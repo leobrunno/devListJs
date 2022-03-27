@@ -14,10 +14,7 @@ module.exports = (app) => {
 
             if (err) {
 
-                console.log(`error: ${err}`);
-                res.status(400).json({
-                    error: err
-                });
+                app.utils.error.send(err, req, res);
             } else {
 
                 res.statusCode = 200;
@@ -25,6 +22,22 @@ module.exports = (app) => {
                 res.json({
                     users
                 });
+            }
+        });
+    });
+
+    let routeId = app.route('/users/:id');
+
+    routeId.get((req, res) => {
+
+        db.findOne({ _id: req.params.id }).exec((err, user) => {
+
+            if (err) {
+
+                app.utils.error.send(err, req, res);
+            } else {
+
+                res.status(200).json(user);
             }
         });
     });
