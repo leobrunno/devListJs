@@ -149,16 +149,6 @@ class User {
 
     delete() {
 
-        let users = User.getUsersStorage();
-
-        users.forEach((userData, index) => {
-            
-            if(this._id == userData._id) {
-
-                users.splice(index, 1);
-            }
-        });
-
-        localStorage.setItem("user", JSON.stringify(users));
+        return HttpRequest.delete(`/users/delete/${this.id}`);
     }
 }
