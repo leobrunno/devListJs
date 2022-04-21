@@ -97,29 +97,42 @@ class User {
         return users_id;
     }
 
+    toJSON() {
+
+        let json = {};
+
+        Object.keys(this).forEach(key => {
+
+            if(this[key] !== undefined) json[key] = this[key];
+        });
+
+        return json;
+    }
+
     save() {
 
-        let users = User.getUsersStorage();
+        return new Promise((resolve, reject) => {
 
-        if(this.id > 0) {
+            let promise;
 
-            users.map(u => {
+            if(this.id) {
 
-                if(u._id == this.id) {
+                promise = HttpRequest.put(`/users/${this.id}`, this.toJSON());
+            } else {
 
-                    Object.assign(u, this);
-                }
+                promise = HttpRequest.post('/users', this.toJSON());
+            }
 
-                return u;
+            promise.then(data => {
+
+                this.loadFromJSON(data);
+
+                resolve(this);
+            }).catch(e => {
+
+                reject(e);
             });
-        } else {
-
-            this._id = this.getNewId();
-
-            users.push(this);
-        }
-
-        localStorage.setItem("user", JSON.stringify(users));
+        });
     }
 
     static getUsersStorage() {

@@ -39,16 +39,17 @@ class HttpRequest {
                 try {
 
                     obj = JSON.parse(ajax.responseText);
-                } catch (e) {
+                } catch (event) {
 
-                    reject(e);
-                    console.error(e);
+                    reject(event);
+                    console.error(event);
                 }
 
                 resolve(obj);
             }
 
-            ajax.send();
+            ajax.setRequestHeader('Content-Type', 'application/json');
+            ajax.send(JSON.stringify(params));
         });
     }
 }
