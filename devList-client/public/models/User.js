@@ -80,7 +80,7 @@ class User {
                     break;
 
                 default:
-                    this[name] = json[name];
+                    if(name.substring(0, 1) === '_') this[name] = json[name];
             }
         }
     }
@@ -117,7 +117,7 @@ class User {
 
             if(this.id) {
 
-                promise = HttpRequest.put(`/users/${this.id}`, this.toJSON());
+                promise = HttpRequest.put(`/users/update/${this.id}`, this.toJSON());
             } else {
 
                 promise = HttpRequest.post('/users', this.toJSON());

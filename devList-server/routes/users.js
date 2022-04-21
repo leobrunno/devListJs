@@ -46,9 +46,9 @@ module.exports = (app) => {
     let routeUpdate = app.route('/users/update/:id');
 
     routeUpdate.put([
-            check("name", "O nome é obrigatório.").notEmpty(),
-            check("password", "A senha é obrigatório.").notEmpty(),
-            check("email", "Email inválido.").notEmpty().isEmail(),
+            check("_name", "O nome é obrigatório.").notEmpty(),
+            check("_password", "A senha é obrigatório.").notEmpty(),
+            check("_email", "Email inválido.").notEmpty().isEmail(),
         ],
         (req, res) => {
 
