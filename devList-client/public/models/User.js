@@ -85,18 +85,6 @@ class User {
         }
     }
 
-    getNewId() {
-
-        let users_id = localStorage.getItem("users_id");
-
-        if(!users_id) users_id = 0;
-        users_id++;
-
-        localStorage.setItem("users_id", users_id);
-
-        return users_id;
-    }
-
     toJSON() {
 
         let json = {};
@@ -137,14 +125,7 @@ class User {
 
     static getUsersStorage() {
 
-        let users = [];
-
-        if(localStorage.getItem("user")){
-
-            users = JSON.parse(localStorage.getItem("user"));
-        }
-
-        return users;
+        return HttpRequest.get('/users');
     }
 
     delete() {
