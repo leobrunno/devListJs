@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="components/Ionicons/css/ionicons.min.css">
   <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
   <link rel="stylesheet" href="dist/css/skins/skin-blue.min.css">
+  <link rel="stylesheet" href="dist/css/custom-style.css">
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
@@ -123,6 +124,9 @@
           <small>Gerenciamento de usuários do sistema</small>
         </h1>
         <ol class="breadcrumb">
+          <li>
+            <div id="switch" class="switch"></div>
+          </li>
           <li><a href="/"><i class="fa fa-home"></i> Home</a></li>
           <li class="active">Usuários</li>
         </ol>
@@ -835,6 +839,79 @@
   <script src="models/User.js"></script>
   <script src="controllers/UserController.js"></script>
   <script src="index.js"></script>
+  <script>
+    let swt = document.querySelector('#switch');
+
+    window.onload = function() {
+
+      if((localStorage.getItem("darkMode") == null)){
+
+        setTimeout(function(){
+
+          localStorage.setItem("darkMode", "off");
+          offDarkMode();
+        }, 2000);
+      } else if(localStorage.getItem("darkMode") == "off"){
+        
+        setTimeout(function(){
+
+          offDarkMode();
+        }, 2000);
+      } else {
+        
+        setTimeout(() => {
+          swt.classList.add("active");
+          onDarkMode();
+        }, 2000);
+      }
+
+      swt.onclick = function() {
+
+        let status = document.querySelector("#switch").classList;
+
+        let activeOn = [...status].indexOf("active");
+
+        if(activeOn == -1){
+
+          onDarkMode();
+          localStorage.setItem("darkMode", "on");
+        } else if(activeOn == 1){
+
+          offDarkMode();
+          localStorage.setItem("darkMode", "off");
+        }
+
+        this.classList.toggle('active');
+        let thisactive = this.className;       
+      }
+
+      function onDarkMode() {
+
+        document.querySelector("body > div > header > nav").classList.add('dark-header');
+        document.querySelector("body > div > header > a").classList.add('dark-header');
+        document.querySelector("body > div > aside").classList.add('dark-header');
+        document.querySelector("body > div > div").classList.add('div-dark');
+        document.querySelector(".table-striped>tbody>tr:nth-of-type(odd)").classList.add('div-dark');
+        document.querySelector("body > div > div > section.content-header").classList.add('div-dark');
+        document.querySelector("#box-new-user").classList.add('div-dark');
+        document.querySelector("#form-user-create > div.box-footer").classList.add('div-dark');
+        document.querySelector("body > div > div > section.content.container-fluid > div > div.col-md-8 > div").classList.add('div-dark');
+      }
+
+      function offDarkMode() {
+
+        document.querySelector("body > div > header > nav").classList.remove('dark-header');
+        document.querySelector("body > div > header > a").classList.remove('dark-header');
+        document.querySelector("body > div > aside").classList.remove('dark-header');
+        document.querySelector("body > div > div").classList.remove('div-dark');
+        document.querySelector(".table-striped > tbody > tr:nth-of-type(odd)").classList.remove('div-dark');
+        document.querySelector("body > div > div > section.content-header").classList.remove('div-dark');
+        document.querySelector("#box-new-user").classList.remove('div-dark');
+        document.querySelector("#form-user-create > div.box-footer").classList.remove('div-dark');
+        document.querySelector("body > div > div > section.content.container-fluid > div > div.col-md-8 > div").classList.remove('div-dark');
+      }
+    }
+  </script>
 
 </body>
 
