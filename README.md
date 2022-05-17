@@ -23,6 +23,8 @@ $ npm start
 
 Após isso, a aplicação estará rodando no endereço http://localhost:3000
 
+Caso queira, é possível rodar somente o server e utilizar em outros projetos, as rotas estão mapeadas e documentadas no arquivo de collection do Postman, incluido na raiz do repositorio, bastando importa-lo no proprio Postman e começar a usar.
+
 
 ## 🛠️ Construído com
 
