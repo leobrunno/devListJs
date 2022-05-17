@@ -1,0 +1,233 @@
+{
+	"info": {
+		"_postman_id": "013843b5-118c-4863-bd1f-4510e3f10cbf",
+		"name": "devListJS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "list users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:4000/users",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "4000",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "find one",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:4000/users/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "4000",
+					"path": [
+						"users",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "_name",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "_password",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "_email",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "_gender",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "_birth",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "_country",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "_photo",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "_admin",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "_register",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "_id",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:4000/users/update/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "4000",
+					"path": [
+						"users",
+						"update",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://127.0.0.1:4000/users/delete/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "4000",
+					"path": [
+						"users",
+						"delete",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "_name",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "_password",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "_email",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "_gender",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "_country",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "_birth",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "_photo",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "_admin",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "_register",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:4000/users",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "4000",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
